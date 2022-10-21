@@ -1,0 +1,16 @@
+package com.jaeho.project.sns.repository;
+
+import com.jaeho.project.sns.model.entity.PostEntity;
+import com.jaeho.project.sns.model.entity.UserEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface PostEntityRepository extends JpaRepository<PostEntity,Integer> {
+
+    Page<PostEntity>findAllByUser(UserEntity entity, Pageable pageable);
+}
